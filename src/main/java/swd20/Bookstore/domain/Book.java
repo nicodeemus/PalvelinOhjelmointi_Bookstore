@@ -17,6 +17,8 @@ public class Book {
 	private String isbn;
 	private double price;
 	
+	private String idCopy;
+	
 	
 	
 	
@@ -26,6 +28,27 @@ public class Book {
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
+	}
+	
+	public Book(String id, String title, String author, int year, String isbn, double price) {
+		this.idCopy = id;
+		this.title = title;
+		this.author = author;
+		this.year = year;
+		this.isbn = isbn;
+		this.price = price;
+	}
+	
+	public String getIdCopy() {
+		return idCopy;
+	}
+
+	public void setIdCopy(String idCopy) {
+		this.idCopy = idCopy;
+	}
+
+	public Book() {
+		
 	}
 	public long getId() {
 		return id;
@@ -63,7 +86,6 @@ public class Book {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
 	
 
 }
