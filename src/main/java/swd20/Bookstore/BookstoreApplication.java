@@ -30,6 +30,11 @@ public class BookstoreApplication {
 			repository.save(b);
 			Crepository.save(c);
 			Crepository.save(d);
+			
+		
+			
+			
+
 		};
 		
 	}

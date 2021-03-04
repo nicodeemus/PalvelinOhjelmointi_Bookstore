@@ -16,6 +16,10 @@ public class Category {
 		super();
 		this.name = name;
 	}
+	
+	public Category() {
+	
+	}
 
 	private String name;
 

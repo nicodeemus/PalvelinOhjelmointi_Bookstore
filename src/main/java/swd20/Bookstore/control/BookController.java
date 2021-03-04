@@ -36,7 +36,7 @@ public class BookController {
 		return "redirect:../booklist";
 	}
 	
-	@RequestMapping(value = "/add")
+	@RequestMapping(value = "/addBook")
 	public String addBook (Model model) {
 		model.addAttribute("book", new Book());
 		
@@ -52,7 +52,7 @@ public class BookController {
 	@RequestMapping(value="/save", method = RequestMethod.POST)
 	public String saveBook(Book book) {
 		repository.save(book);
-		return "redirect:../booklist";
+		return "redirect:booklist";
 	}
 	
 
