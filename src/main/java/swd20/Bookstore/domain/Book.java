@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 public class Book {
@@ -17,39 +22,26 @@ public class Book {
 	private String isbn;
 	private double price;
 	
-	private String idCopy;
+	@ManyToOne
+	@JsonIgnoreProperties ("books")
+	@JoinColumn(name ="CategoryId")
+	private Category category;
 	
-	
-	
-	
-	public Book(String title, String author, int year, String isbn, double price) {
-		this.title = title;
-		this.author = author;
-		this.year = year;
-		this.isbn = isbn;
-		this.price = price;
-	}
-	
-	public Book(String id, String title, String author, int year, String isbn, double price) {
-		this.idCopy = id;
-		this.title = title;
-		this.author = author;
-		this.year = year;
-		this.isbn = isbn;
-		this.price = price;
-	}
-	
-	public String getIdCopy() {
-		return idCopy;
-	}
 
-	public void setIdCopy(String idCopy) {
-		this.idCopy = idCopy;
+	public Book(String title, String author, int year, String isbn, double price, Category category) {
+		this.title = title;
+		this.author = author;
+		this.year = year;
+		this.isbn = isbn;
+		this.price = price;
+		this.category = category;
 	}
+	
 
 	public Book() {
 		
 	}
+	
 	public long getId() {
 		return id;
 	}
@@ -86,6 +78,15 @@ public class Book {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta http-equiv="Content-Type" content="text/html "charset="UTF-8">
 <title>Add book</title>
@@ -18,6 +18,11 @@
 		<input type="text" id="isbn" th:field="*{isbn}"></input>
 		<label for="price">Price</label>
 		<input type="text" id="price" th:field="*{price}"></input>
+		
+	<label for "categories">Category</label>
+		<select id="category" th:field="*{category}">
+			<option th:each="category: ${categories}" th:value="${category.CategoryId}" th:text="${category.name}"></option>
+		</select>
 		
 		<input type="submit" value="Save"></input>
 		
