@@ -20,6 +20,11 @@
 		<input type="text" id="price" th:field="*{price}"></input>
 		<input id="id" type="hidden" th:field="*{id}">
 		
+		<label for "categories">Category</label>
+		<select id="category" th:field="*{category}">
+			<option th:each="category: ${categories}" th:value="${category.CategoryId}" th:text="${category.name}"></option>
+		</select>
+		
 		<input type="submit" value="Edit"></input>
 </form>
 </body>
